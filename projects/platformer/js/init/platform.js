@@ -33,6 +33,8 @@
          * bottom of the game.
          */
         platform.create(0, game.world.height - 32, 3, 2);
+        platform.create(x, y, scaleX, scaleY);
+        
 
         // example:
         platform.create(400, 460);
