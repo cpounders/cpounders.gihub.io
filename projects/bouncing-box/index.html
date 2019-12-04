@@ -30,8 +30,8 @@
 
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
-		(function(){
-			'use strict'
+		(function moveBoxTo(newPositionX){
+			box.css("left", newPositionX);
 			/* global jQuery */
 
 			// jQuery stuff setup for you
@@ -42,7 +42,7 @@
             var position;
             var points;
             var speed;
-            var direction
+            var direction;
             
             position = 0;
             points = 0;
