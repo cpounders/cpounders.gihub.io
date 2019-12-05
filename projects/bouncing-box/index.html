@@ -31,41 +31,53 @@
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
 		(function moveBoxTo(newPositionX){
-			box.css("left", newPositionX);
 			/* global jQuery */
 
 			// jQuery stuff setup for you
 			var box = jQuery('.box');
 			var boardWidth = jQuery('.board').width();
-	
-			// TODO 2 - Variable declarations 
+			box.css("left", newPositionX);
+
+			// TODO 2 - Variable declarations
             var position;
             var points;
             var speed;
             var direction;
-            
+
             position = 0;
             points = 0;
             speed = 30;
             direction = 1;
+		    box.text(points);
 
-			
+
 			function update() {
-			    position += speed;
+			    position += speed * direction;
 			    console.log("new position: " + position);
-			    box.css('left', position); 
+			    box.css('left', position);
 				// TODO 3 / 6 / 7 / 8
-				
+                if (position > boardWidth){
+                    console.log("Right Wall Hit")
+                      direction = -1;
+                      console.log(direction);
+                }
+                else if (position < 0){
+                    console.log("Left Wall Hit")
+                    direction = 1;
+                    console.log(direction);
+                }
+                  box.css('left', position);
 			};
 
 
-			
+
 			function handleBoxClick() {
 			    points += 1;
 			    box.text(points);
-			
+
+                position = 0;
 				// TODO 4 / 5
-				
+
 			};
 
 
